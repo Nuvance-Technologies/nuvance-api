@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id                  String   @id @default(cuid())
+  adminname           String
+  email               String   @unique
+  password            String
+  otpForResetPassword String   @default("")
+  AdminAddedAt        DateTime @default(now())
+  avatar              Avatar[]
+}
+
+model Avatar {
+  id        Int      @id @default(autoincrement())
+  publicId  String   @unique
+  url       String
+  createdAt DateTime @default(now())
+  admin     Admin    @relation(fields: [adminId], references: [id])
+  adminId   String // this is the Foreign key to Admin's Table !!
+}

@@ -1,1 +1,1 @@
-console.log("Started With the Backend!!");
+console.log("prisma-postgresql, db setup!!");
