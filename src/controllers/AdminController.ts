@@ -165,3 +165,45 @@ export const logout = async (req: Request, res: Response) => {
         return
     }
 }
+
+export const me = async (req: Request, res: Response) => {
+    try {
+        if (!(req as any).admin) {
+            res.status(401).json({
+                message: "ACCESS DENIED"
+            })
+            return
+        }
+
+        const adminId = (req as any).admin.id;
+
+        const admin = await prisma.admin.findUnique({
+            where: {
+                id: adminId
+            }
+        })
+
+        if (!admin) {
+            res.status(400).json({
+                message: "Sorry Admin Not Found!"
+            })
+            return
+        }
+
+        const finalAdminData = {
+            adminname: admin?.adminname,
+            email: admin?.email,
+            adminAddedAt: admin?.AdminAddedAt
+        }
+
+        res.status(200).json({
+            finalAdminData
+        })
+
+    } catch (error) {
+        res.status(500).json({
+            message: 'Something Went Wrong, Please Try Again Later',
+            error
+        });
+    }
+}
