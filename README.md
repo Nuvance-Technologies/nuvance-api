@@ -15,6 +15,7 @@
     ```bash
     PORT=
     DATABASE_URL=
+    JWT_ADMIN_SECRET=
     ```
 4. Run the server:
     ```bash
