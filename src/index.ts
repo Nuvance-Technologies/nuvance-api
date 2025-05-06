@@ -3,6 +3,7 @@ import cors from 'cors';
 import cookieParser from "cookie-parser";
 import { AdminRouter } from './routes/AdminRoutes';
 import { PORT } from './config';
+import { GetInTouchRouter } from './routes/GetInTouchRoutes';
 
 const app = express();
 
@@ -20,7 +21,8 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.use("/api/v1/auth/admin", AdminRouter)
+app.use("/api/v1/auth/admin", AdminRouter);
+app.use("/api/v1/getintouch", GetInTouchRouter)
 
 app.get("/", (req, res) => {
     res.send("NUVANCE TECH SERVER IS UP!!")

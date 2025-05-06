@@ -25,3 +25,41 @@ model Avatar {
   admin     Admin    @relation(fields: [adminId], references: [id])
   adminId   String // this is the Foreign key to Admin's Table !!
 }
+
+model GetInTouchResponse {
+  id                 Int            @id @default(autoincrement())
+  fullname           String
+  companyName        String?
+  email              String
+  contactNumber      String
+  projectType        projectType
+  projectDescription String
+  EstimatedBudget    String?
+  timeline           timeline?
+  contactMethod      contactMethod?
+  additionalInfo     String?
+  createdAt          DateTime       @default(now())
+}
+
+enum projectType {
+  WebsiteDevelopment
+  MobileAppDevelopment
+  UIUXDesign
+  ContentWriting
+  Other
+}
+
+enum timeline {
+  lessThanOneMonth
+  oneToThreeMonths
+  threeToSixMonths
+  moreThanSixMonths
+  flexible
+}
+
+enum contactMethod {
+  email
+  phoneCall
+  videoCall
+  whatsapp
+}
