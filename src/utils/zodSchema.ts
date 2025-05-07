@@ -18,7 +18,7 @@ export const getInTouchValidationSchema = z.object({
     contactNumber: z.string(),
     projectType: z.enum(["WebsiteDevelopment", "MobileAppDevelopment", "UIUXDesign", "ContentWriting", "Other"]),
     projectDescription: z.string(),
-    EstimatedBudget: z.string(),
+    EstimatedBudget: z.string().optional(),
     timeline: z.enum(["lessThanOneMonth", "oneToThreeMonths", "threeToSixMonths", "moreThanSixMonths", "flexible"]),
     contactMethod: z.enum(["email", "phoneCall", "videoCall", "whatsapp"]),
     additionalInfo: z.string().optional()
