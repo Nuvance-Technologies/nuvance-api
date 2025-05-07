@@ -35,7 +35,8 @@ export const AddData = async (req: Request, res: Response) => {
         });
 
         res.status(200).json({
-            message: `successfully ${getInTouch.fullname}'s Get in Touch Data Recorded!!`, 
+            message: `successfully ${getInTouch.fullname}'s Get in Touch Data Recorded!!`,
+            fullName: getInTouch.fullname, 
         })
 
     } catch (error) {
