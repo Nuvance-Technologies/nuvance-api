@@ -41,6 +41,16 @@ model GetInTouchResponse {
   createdAt          DateTime       @default(now())
 }
 
+model PortfolioProjects {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  testimonial String?
+  videoUrl    String
+  websiteUrl  String
+  createdAt   DateTime @default(now())
+}
+
 enum projectType {
   WebsiteDevelopment
   MobileAppDevelopment

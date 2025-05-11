@@ -23,3 +23,11 @@ export const getInTouchValidationSchema = z.object({
     contactMethod: z.enum(["email", "phoneCall", "videoCall", "whatsapp"]),
     additionalInfo: z.string().optional()
 })
+
+export const portfolioValidationSchema = z.object({
+    title: z.string(),
+    description: z.string(),
+    testimonial: z.string().optional(),
+    videoUrl: z.string(),
+    websiteUrl: z.string(),
+})
