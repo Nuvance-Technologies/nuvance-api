@@ -5,6 +5,7 @@ import { AdminRouter } from './routes/AdminRoutes';
 import { PORT } from './config';
 import { GetInTouchRouter } from './routes/GetInTouchRoutes';
 import { PortfolioRouter } from './routes/PortfolioRoutes';
+import { ContactRouter } from './routes/ContactRoutes';
 
 const app = express();
 
@@ -27,6 +28,7 @@ app.use(cors(corsOptions));
 app.use("/api/v1/auth/admin", AdminRouter);
 app.use("/api/v1/getintouch", GetInTouchRouter);
 app.use("/api/v1/portfolio" , PortfolioRouter)
+app.use("/api/v1/contact" , ContactRouter) 
 
 app.get("/", (req, res) => {
     res.send("NUVANCE TECH SERVER IS UP!!")

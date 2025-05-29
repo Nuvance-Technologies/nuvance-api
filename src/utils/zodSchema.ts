@@ -31,3 +31,13 @@ export const portfolioValidationSchema = z.object({
     videoUrl: z.string(),
     websiteUrl: z.string(),
 })
+
+export const contactValidationSchema = z.object({
+    firstName: z.string(),
+    lastName: z.string(),
+    email: z.string().email(),
+    contactNumber: z.string().min(10).max(10),
+    companyName: z.string().optional(),
+    companySize: z.string().optional(),
+    howWeCanHelp: z.string(),
+})
